@@ -1,0 +1,24 @@
+{
+  "name": "-promise",
+  "version": "1.0.0",
+  "description": "A different version of Promise",
+  "main": "_Promise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yorgsite/-promise.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "Promise"
+  ],
+  "author": "Yorg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yorgsite/-promise/issues"
+  },
+  "homepage": "https://github.com/yorgsite/-promise#readme"
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<script src="_Promise.js"></script>
+		<script>
+		console.log("_Promise",_Promise);
+		var gamble=function(reach,tries){
+			return new _Promise(["progress","then","fail","&start"],function(){
+				var prom=this;
+				var score=0,
+					tid=0;
+				this.start=function(){
+					update();
+				};
+				var update=function(){
+					if(tid<tries){
+						tid++;
+						score+=Math.random();
+						prom.progress({
+							score:score,
+							reach:reach,
+							tries:tries-tid
+						});
+						if(score>=reach){
+							prom.then(score+tries-tid);
+						}else{
+							setTimeout(update,50);
+						}
+					}else{
+						prom.fail(score);
+					}
+				};
+			});
+		};
+		gamble(12,20)
+		.progress(function(evt){
+			console.log("progress ",evt);
+		})
+		.then(function(result){
+			console.log("you succeed. score=",result);
+		})
+		.fail(function(result){
+			console.log("you failed. score=",result);
+		})
+		.start();
+
+		</script>
+	</head>
+	<body >
+		Open your console (F12).<br/>
+
+	</body>
+</html>
